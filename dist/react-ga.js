@@ -191,6 +191,7 @@ var internalGa = function internalGa() {
   var _window;
 
   if (_testMode) return _testModeAPI2.default.ga.apply(_testModeAPI2.default, arguments);
+  if (typeof window === 'undefined') return false;
   if (!window.ga) return (0, _warn2.default)('ReactGA.initialize must be called first or GoogleAnalytics should be loaded manually');
   return (_window = window).ga.apply(_window, arguments);
 };
